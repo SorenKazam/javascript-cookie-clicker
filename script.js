@@ -18,6 +18,15 @@ cookie.addEventListener('click', () => {
     }
 });
 
+// Adicionando touchstart para manipular cliques em dispositivos móveis
+cookie.addEventListener('touchstart', (event) => {
+    event.preventDefault(); // Impede o comportamento padrão do navegador
+    if(gameStatus == true){
+        clicksDisplay.textContent = count
+        count++
+    }
+});
+
 const reset = () => {
     timer = 20 // 20 secounds timer
     count = 0 // reset points to zero
