@@ -10,20 +10,11 @@ cookie.addEventListener('click', () => {
     if(gameStatus == false){
         console.log('Starting Game!')
         reset()
-        iniciarContador()
+        startTimer()
         cookie.addEventListener('click', () => {
             clicksDisplay.textContent = count
             count++
         })
-    }
-});
-
-// Adicionando touchstart para manipular cliques em dispositivos móveis
-cookie.addEventListener('touchstart', (event) => {
-    event.preventDefault(); // Impede o comportamento padrão do navegador
-    if(gameStatus == true){
-        clicksDisplay.textContent = count
-        count++
     }
 });
 
@@ -32,10 +23,11 @@ const reset = () => {
     count = 0 // reset points to zero
     gameStatus = true // in true, the game cant be reset by the cookie button
     gameOverDisplay.textContent = '' // delete the game over message if there is one
+    timerDisplay.textContent = timer
     console.log('Game reset complete')
 }
 
-function iniciarContador() {
+function startTimer() {
     const intervalo = setInterval(function() {
         // Exibe o valor atual do contador
         timerDisplay.textContent = timer
